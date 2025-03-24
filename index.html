@@ -1,0 +1,74 @@
+
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>Generatore di Pizze</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: sans-serif;
+      background: #fffbe6;
+      color: #333;
+      text-align: center;
+      padding: 30px;
+    }
+    select, button {
+      padding: 10px;
+      font-size: 1em;
+      margin: 10px;
+      border-radius: 8px;
+      border: none;
+    }
+    button {
+      background-color: #ff6347;
+      color: white;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #e5533c;
+    }
+    #pizzaResult {
+      margin-top: 30px;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      text-align: left;
+    }
+    h2 {
+      margin-bottom: 10px;
+    }
+    .note {
+      font-style: italic;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🍕 Generatore di Pizza</h1>
+
+  <label for="livelloSelect"><strong>Scegli il tipo di pizza:</strong></label><br>
+  <select id="livelloSelect">
+    <option value="classica">🇮🇹 Italiana Classica</option>
+    <option value="leggenda">🏛️ Leggenda Italiana</option>
+    <option value="americana">🇺🇸 Americana</option>
+    <option value="pazza">🤪 Pazza</option>
+    <option value="chimica">🧪 Chimica Pazza</option>
+  </select><br>
+
+  <button onclick="generaPizza()">Genera Pizza</button>
+
+  <div id="pizzaResult"></div>
+
+  <script src="pizzeClassiche.js"></script>
+  <script src="pizzeLeggendarie.js"></script>
+  <script src="ingredienti.js"></script>
+  <script src="main.js"></script>
+
+</body>
+</html>
