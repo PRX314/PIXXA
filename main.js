@@ -28,13 +28,22 @@ note = p.note;
     provenienza = p.provenienza;
     note = p.note;
 
-  } else {
-    let lista;
-    if (livello === "americana") lista = ingredientiAmericana;
-    if (livello === "pazza") lista = ingredientiPazza;
-    if (livello === "chimica") lista = ingredientiChimica;
-    ingredienti = scegliRandom(lista, Math.floor(Math.random() * 4) + 2);
+    } else if (livello === "pazza") {
+    // Prendi tutti gli ingredienti da classiche + leggendarie
+    const tuttiIngredienti = [
+      ...pizzeClassiche.flatMap(p => p.ingredienti),
+      ...pizzeLeggendarie.flatMap(p => p.ingredienti)
+    ];
+
+    // Rimuovi duplicati
+    const unici = [...new Set(tuttiIngredienti)];
+
+    // Scegli da 3 a 6 ingredienti casuali
+    ingredienti = scegliRandom(unici, Math.floor(Math.random() * 4) + 3);
+
+    // Dai un nome folle
     nome = generaNomeDaIngredienti(ingredienti);
+    note = "Pizza pazza creata con ingredienti classici e leggendari!";
   }
 
   let html = `<h2>🍕 ${nome}</h2>`;
